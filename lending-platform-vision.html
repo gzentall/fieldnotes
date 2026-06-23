@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lending Platform Vision, Fintech XD</title>
+<style>
+  :root{
+    --ink:#1d1f23;
+    --ink-soft:#50545c;
+    --ink-faint:#898e98;
+    --paper:#faf8f4;
+    --card:#ffffff;
+    --line:#e6e3db;
+    --line-strong:#d6d2c8;
+    --accent:#2f4858;
+    --accent-soft:#eef1f3;
+    --maxw:820px;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--sans);font-size:16px;line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  main{max-width:var(--maxw);margin:0 auto;padding:0 24px 84px;}
+
+  .masthead{padding:46px 0 4px;}
+  .kicker{font-size:12.5px;letter-spacing:.04em;color:var(--ink-faint);margin-bottom:18px;}
+  .kicker b{color:var(--ink);font-weight:700;}
+  h1.doc-title{font-family:var(--serif);font-weight:600;font-size:34px;line-height:1.15;letter-spacing:-.01em;margin:0 0 18px;}
+  ol.toc{margin:0 0 6px;padding:0;list-style:none;counter-reset:t;
+    display:flex;flex-wrap:wrap;gap:6px 22px;}
+  ol.toc li{counter-increment:t;font-size:13.5px;}
+  ol.toc li::before{content:counter(t) ".";color:var(--ink-faint);margin-right:7px;}
+  ol.toc a{color:var(--ink-soft);text-decoration:none;}
+  ol.toc a:hover{color:var(--accent);text-decoration:underline;}
+
+  section.sheet{padding:46px 0 6px;border-top:1px solid var(--line);margin-top:38px;}
+  .eyebrow{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:13px;}
+  h2.sheet-title{font-family:var(--serif);font-weight:600;font-size:26px;line-height:1.22;margin:0 0 22px;letter-spacing:-.005em;}
+  h3{font-size:14.5px;font-weight:700;letter-spacing:.005em;margin:28px 0 9px;}
+  p{margin:0 0 14px;}
+  .soft{color:var(--ink-soft);}
+
+  .meta{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:0 0 26px;}
+  .meta div{background:var(--card);padding:13px 15px;}
+  .meta .k{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:3px;}
+  .meta .v{font-size:14px;font-weight:600;}
+
+  .note{background:var(--accent-soft);border:1px solid #dde4e8;border-radius:10px;padding:16px 18px;margin:2px 0 14px;}
+  .note p{margin:0;color:var(--ink-soft);font-size:14.5px;}
+
+  ul.clean{margin:0 0 14px;padding-left:18px;}
+  ul.clean li{margin:0 0 8px;}
+  ul.clean li:last-child{margin-bottom:0;}
+
+  .area{border-top:1px solid var(--line);padding:16px 0 4px;}
+  .area:first-of-type{border-top:none;}
+  .area h4{font-size:16px;margin:0 0 4px;font-weight:700;}
+  .area p{margin:0;color:var(--ink-soft);}
+
+  table{width:100%;border-collapse:collapse;margin:6px 0 16px;font-size:14.5px;}
+  table.bordered{border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+  th,td{text-align:left;padding:12px 15px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;}
+  td .lab{font-weight:700;}
+  tr:last-child td{border-bottom:none;}
+
+  footer.foot{max-width:var(--maxw);margin:0 auto;padding:30px 24px 0;color:var(--ink-faint);font-size:13px;}
+
+  @media(max-width:600px){
+    .meta{grid-template-columns:repeat(2,1fr);}
+    h1.doc-title{font-size:28px;}
+    h2.sheet-title{font-size:22px;}
+  }
+</style>
+</head>
+<body>
+
+<main>
+
+  <div class="masthead">
+    <div class="kicker"><b>Fintech XD</b> · Lending</div>
+    <h1 class="doc-title">Lending Platform Vision</h1>
+    <ol class="toc">
+      <li><a href="#s1">Overview</a></li>
+      <li><a href="#s2">Areas we are exploring</a></li>
+      <li><a href="#s3">Scope and open items</a></li>
+    </ol>
+  </div>
+
+  <!-- Sheet 1 -->
+  <section class="sheet" id="s1" style="border-top:none;margin-top:18px;">
+    <div class="eyebrow">Sheet 01 · Overview</div>
+    <h2 class="sheet-title">Exploratory work on the lending platform</h2>
+
+    <div class="meta">
+      <div><div class="k">For</div><div class="v">Lending stakeholders</div></div>
+      <div><div class="k">From</div><div class="v">Fintech XD</div></div>
+      <div><div class="k">Date</div><div class="v">June 11, 2026</div></div>
+      <div><div class="k">Status</div><div class="v">Early draft</div></div>
+    </div>
+
+    <h3>What this is</h3>
+    <p>Fintech XD is taking on exploratory work to look for opportunities in the lending platform, meaning the parts of lending that can be shared across products rather than built separately for each one.</p>
+    <p>This document lays out where we intend to look and why.</p>
+
+    <h3>Why now</h3>
+    <p>Several lending efforts are moving at the same time, across different products. The Consumer Group is offering new lines of credit to customers next year. Revenue based financing is being built from the ground up. Embedded lending is still maturing. Each one has to solve the same basic problems, like how a customer gets funded and how they manage what they owe, and today each is solving them on its own.</p>
+    <p>The longer that continues, the more these experiences drift apart, and the harder it is to bring them back together later. Doing the platform work now lets us shape these efforts while they are still being built, instead of cleaning up after. That is why it matters now, and it is worth our time.</p>
+    <p>A few principles guide this work. We think they are worth adopting across the teams working in lending:</p>
+    <ul class="clean">
+      <li>Shared pieces are built once, so any product can use them instead of building their own.</li>
+      <li>Lending feels like a natural part of each product, and works the same way underneath.</li>
+      <li>As customers move across Intuit products, their experience carries over, rather than starting over.</li>
+    </ul>
+  </section>
+
+  <!-- Sheet 2 -->
+  <section class="sheet" id="s2">
+    <div class="eyebrow">Sheet 02 · Areas we are exploring</div>
+    <h2 class="sheet-title">Where we intend to look</h2>
+    <p class="soft">These are the areas we are starting with. We will sharpen where we focus as the work progresses.</p>
+
+    <div class="area">
+      <h4>Origination</h4>
+      <p>How people find, apply for, and receive credit across the different places lending shows up.</p>
+    </div>
+    <div class="area">
+      <h4>Servicing</h4>
+      <p>How people manage a loan or line of credit after they have it, and stay in good standing.</p>
+    </div>
+    <div class="area">
+      <h4>Embedded experiences</h4>
+      <p>How lending shows up inside other products without each team having to rebuild it.</p>
+    </div>
+    <div class="area">
+      <h4>Reach into consumer products</h4>
+      <p>Whether and how lending could extend further into consumer products over time.</p>
+    </div>
+  </section>
+
+  <!-- Sheet 3 -->
+  <section class="sheet" id="s3">
+    <div class="eyebrow">Sheet 03 · Scope and open items</div>
+    <h2 class="sheet-title">What this covers, and where we go next</h2>
+
+    <h3>What this covers</h3>
+    <table class="bordered">
+      <tbody>
+        <tr>
+          <td style="width:30%"><span class="lab">In focus</span></td>
+          <td>The shared parts of lending that more than one product could use.</td>
+        </tr>
+        <tr>
+          <td><span class="lab">Not in focus right now</span></td>
+          <td>Work that is specific to a single product, and decisions about solutions, methods, or timing. Those come later.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="soft">We will sharpen these boundaries as the work develops.</p>
+
+    <h3>Open items</h3>
+    <ul class="clean">
+      <li>Which areas to focus on first. We will gather input from the team.</li>
+      <li>How to make the work useful. We are exploring ways to make the output valuable to stakeholders.</li>
+      <li>Who joins us. We are looking for collaborators on the work.</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="foot">Fintech XD · June 11, 2026 · Early draft</footer>
+
+</body>
+</html>
