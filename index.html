@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>gzentall's fieldnotes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Crimson+Pro:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1a1611;
+      --paper: #f7f3ec;
+      --paper-deep: #efe9dd;
+      --rule: #c9bfa8;
+      --muted: #807463;
+      --accent: #8b6f3e;
+      --accent-deep: #6b5530;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      background: var(--paper);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Crimson Pro', 'Iowan Old Style', Georgia, serif;
+      font-size: 19px;
+      line-height: 1.65;
+      font-weight: 400;
+      min-height: 100vh;
+      background-image:
+        radial-gradient(rgba(60, 40, 20, 0.025) 1px, transparent 1px),
+        radial-gradient(rgba(60, 40, 20, 0.018) 1px, transparent 1px);
+      background-size: 3px 3px, 7px 7px;
+      background-position: 0 0, 1px 2px;
+    }
+
+    .page {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 6rem 1.75rem 8rem;
+    }
+
+    @media (min-width: 720px) {
+      .page { padding: 8rem 2rem 10rem; }
+    }
+
+    header.masthead {
+      margin-bottom: 4rem;
+      padding-bottom: 2.25rem;
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+    }
+
+    header.masthead::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 64px;
+      height: 1px;
+      background: var(--ink);
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(2.6rem, 6vw, 3.4rem);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      margin: 0 0 0.85rem;
+      color: var(--ink);
+    }
+
+    h1 .ampersand {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--accent-deep);
+    }
+
+    .tagline {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--muted);
+      margin: 0;
+      letter-spacing: 0.005em;
+    }
+
+    .list-label {
+      font-family: 'Crimson Pro', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+      display: block;
+    }
+
+    ol.entries {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li.entry {
+      padding: 1.6rem 0 1.5rem;
+      border-bottom: 1px solid var(--paper-deep);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.3rem;
+    }
+
+    li.entry:first-child { padding-top: 0; }
+    li.entry:last-child { border-bottom: none; }
+
+    @media (min-width: 720px) {
+      li.entry {
+        grid-template-columns: 110px 1fr;
+        gap: 1.5rem;
+        align-items: baseline;
+      }
+    }
+
+    .entry-date {
+      font-family: 'Crimson Pro', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .entry-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      line-height: 1.25;
+      margin: 0;
+    }
+
+    .entry-title a {
+      color: var(--ink);
+      text-decoration: none;
+      background-image: linear-gradient(var(--accent), var(--accent));
+      background-repeat: no-repeat;
+      background-position: 0 100%;
+      background-size: 0% 1px;
+      transition: background-size 220ms ease-out, color 220ms ease-out;
+      padding-bottom: 2px;
+    }
+
+    .entry-title a:hover,
+    .entry-title a:focus {
+      color: var(--accent-deep);
+      background-size: 100% 1px;
+      outline: none;
+    }
+
+    .entry-title a::after {
+      content: " →";
+      color: var(--rule);
+      font-style: italic;
+      font-size: 0.85em;
+      letter-spacing: 0;
+      transition: color 220ms ease-out, transform 220ms ease-out;
+      display: inline-block;
+    }
+
+    .entry-title a:hover::after,
+    .entry-title a:focus::after {
+      color: var(--accent-deep);
+      transform: translateX(3px);
+    }
+
+    .empty {
+      padding: 3rem 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .empty p { margin: 0 0 1rem; }
+    .empty p:last-child { margin-bottom: 0; }
+
+    code {
+      font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+      font-size: 0.82em;
+      background: var(--paper-deep);
+      padding: 0.15em 0.45em;
+      border-radius: 2px;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+
+    footer.colophon {
+      margin-top: 6rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--paper-deep);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--muted);
+      letter-spacing: 0.01em;
+    }
+
+    .colophon-mark {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.1rem;
+      color: var(--rule);
+      letter-spacing: 0.4em;
+      margin-bottom: 0.6rem;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: var(--paper);
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <h1>gzentall<span class="ampersand">'s</span> fieldnotes</h1>
+      <p class="tagline">Short HTML writeups, sketches, and explorations — kept in the open.</p>
+    </header>
+
+    <span class="list-label">Recent entries</span>
+
+    <div id="entries-container">
+      <ol class="entries" id="entries" hidden></ol>
+      <div class="empty" id="empty" hidden>
+        <p>No fieldnotes yet.</p>
+        <p>Publish your first with <code>npx @dev-devsuccess/fieldnote publish &lt;file&gt;.html</code>.</p>
+      </div>
+    </div>
+
+    <footer class="colophon">
+      <div class="colophon-mark">· · ·</div>
+      <div>Kept with <code>fieldnote</code>.</div>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      const list = document.getElementById('entries');
+      const empty = document.getElementById('empty');
+
+      function showEmpty() {
+        empty.hidden = false;
+        list.hidden = true;
+      }
+
+      function formatDate(iso) {
+        if (!iso) return '';
+        const d = new Date(iso);
+        if (isNaN(d.getTime())) return '';
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+      }
+
+      function render(entries) {
+        if (!entries || entries.length === 0) {
+          showEmpty();
+          return;
+        }
+
+        const sorted = entries.slice().sort(function (a, b) {
+          const ta = a.updated_at ? new Date(a.updated_at).getTime() : 0;
+          const tb = b.updated_at ? new Date(b.updated_at).getTime() : 0;
+          return tb - ta;
+        });
+
+        const frag = document.createDocumentFragment();
+        sorted.forEach(function (entry) {
+          const li = document.createElement('li');
+          li.className = 'entry';
+
+          const date = document.createElement('div');
+          date.className = 'entry-date';
+          date.textContent = formatDate(entry.updated_at);
+
+          const title = document.createElement('h2');
+          title.className = 'entry-title';
+
+          const link = document.createElement('a');
+          link.href = entry.url || ('./' + entry.filename);
+          link.textContent = entry.title || entry.slug || entry.filename;
+          title.appendChild(link);
+
+          li.appendChild(date);
+          li.appendChild(title);
+          frag.appendChild(li);
+        });
+
+        list.appendChild(frag);
+        list.hidden = false;
+      }
+
+      fetch('./fieldnotes.json', { cache: 'no-store' })
+        .then(function (r) {
+          if (!r.ok) throw new Error('manifest unavailable');
+          return r.json();
+        })
+        .then(function (data) { render(data && data.fieldnotes); })
+        .catch(function () { showEmpty(); });
+    })();
+  </script>
+<!--
+  fieldnote:contract
+
+  This page is yours to redesign. The CLI never overwrites it after first creation
+  (unless you run `fieldnote index --reset`).
+
+  The only requirement: render the contents of ./fieldnotes.json on this page.
+
+  Schema:
+  {
+    "generated_at": "ISO 8601 timestamp",
+    "username": "string",
+    "fieldnotes": [
+      {
+        "slug": "string",
+        "filename": "string.html",
+        "title": "string (parsed from <title> tag, may be null)",
+        "url": "string (full URL)",
+        "updated_at": "ISO 8601 timestamp"
+      }
+    ]
+  }
+
+  To customize: run `fieldnote index`, edit this file locally, then `fieldnote index --push`.
+  Prefer the /frontend-design skill if you have it.
+-->
+</body>
+</html>
